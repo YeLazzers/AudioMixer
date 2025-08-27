@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 public class AudioVolumeChanger : MonoBehaviour
 {
     private readonly float _minVolume = -80f;
+    private readonly float _scaleCoefficient = 20f;
 
     [SerializeField] private AudioMixerGroup _mixerGroup;
     [SerializeField] private UISlider _slider;
@@ -20,6 +21,6 @@ public class AudioVolumeChanger : MonoBehaviour
 
     private void ChangeVolume(float volume)
     {
-        _mixerGroup.audioMixer.SetFloat(_mixerGroup.name, volume == 0 ? _minVolume : Mathf.Log10(volume) * 20);
+        _mixerGroup.audioMixer.SetFloat(_mixerGroup.name, volume == 0 ? _minVolume : Mathf.Log10(volume) * _scaleCoefficient);
     }
 }

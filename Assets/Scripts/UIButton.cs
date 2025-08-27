@@ -3,10 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIButton : MonoBehaviour,
-    IPointerDownHandler,
-    IPointerUpHandler,
-    IPointerClickHandler
+public class UIButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
     private readonly Vector2 _pressedButtonLabelOffset = new Vector2(0, 17f);
 

@@ -4,12 +4,9 @@ using UnityEngine.UI;
 
 public class UISlider : MonoBehaviour
 {
-    public Slider Slider { get; private set; }
-    public TextMeshProUGUI Label { get; private set; }
+    [SerializeField] private Slider _slider;
+    [SerializeField] private TextMeshProUGUI _label;
 
-    private void OnValidate()
-    {
-        Slider = GetComponentInChildren<Slider>();
-        Label = GetComponentInChildren<TextMeshProUGUI>();
-    }
+    public Slider Slider => _slider;
+    public TextMeshProUGUI Label => _label;
 }

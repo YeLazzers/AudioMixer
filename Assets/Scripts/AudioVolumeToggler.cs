@@ -1,12 +1,9 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class AudioVolumeToggler : MonoBehaviour
 {
-    private readonly float _minVolume = -80f;
-
-    [SerializeField] private AudioMixerGroup _mixerGroup;
+    [SerializeField] private AudioListener _listener;
     [SerializeField] private Toggle _toggle;
 
     private float _volumeStash;
@@ -23,15 +20,6 @@ public class AudioVolumeToggler : MonoBehaviour
 
     public void ToggleVolume(bool isEnabled)
     {
-
-        if (isEnabled)
-        {
-            _mixerGroup.audioMixer.SetFloat(_mixerGroup.name, _volumeStash);
-        }
-        else
-        {
-            _mixerGroup.audioMixer.GetFloat(_mixerGroup.name, out _volumeStash);
-            _mixerGroup.audioMixer.SetFloat(_mixerGroup.name, _minVolume);
-        }
+        _listener.enabled = isEnabled;
     }
 }
